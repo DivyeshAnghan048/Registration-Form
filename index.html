@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #registration-form {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      #registration-form input[type="text"],
+      #registration-form input[type="email"],
+      #registration-form select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      #registration-form input[type="submit"] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      #registration-form input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      #registration-data {
+        margin-top: 20px;
+      }
+      #registration-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      #registration-table th,
+      #registration-table td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+      #registration-table th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="registration-form">
+      <h2>Registration Form</h2>
+      <form id="register">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" />
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+
+    <div id="registration-data">
+      <h2>Registration Details</h2>
+      <table id="registration-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody id="registration-table-body"></tbody>
+      </table>
+    </div>
+
+    <script>
+      document.getElementById("register").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var gender = document.getElementById("gender").value;
+
+        var tableBody = document.getElementById("registration-table-body");
+        var newRow = tableBody.insertRow();
+        var cell1 = newRow.insertCell(0);
+        var cell2 = newRow.insertCell(1);
+        var cell3 = newRow.insertCell(2);
+        var cell4 = newRow.insertCell(3);
+
+        cell1.textContent = name;
+        cell2.textContent = email;
+        cell3.textContent = phone;
+        cell4.textContent = gender;
+      });
+    </script>
+  </body>
+</html>
